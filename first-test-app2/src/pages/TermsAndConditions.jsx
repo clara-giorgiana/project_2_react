@@ -2,13 +2,13 @@ import React from "react";
 import Layout from "../components/Layout";
 import styles from "./About.css";
 
-class About extends React.Component {
+class TermsAndConditions extends React.Component {
   render() {
     return (
       <div>
         <Layout>
           <div className={styles["container"]}>
-            <div className={styles["title"]}>Despre noi</div>
+            <div className={styles["title"]}>Termani si conditii</div>
             <br />
             <div className={styles["body"]}>
               "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
@@ -36,4 +36,4 @@ class About extends React.Component {
   }
 }
 
-export default About;
+export default TermsAndConditions;
