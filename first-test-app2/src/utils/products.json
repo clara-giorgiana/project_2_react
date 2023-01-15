@@ -232,5 +232,36 @@
         "image": "https://i.imgur.com/qw3wDj8.jpg",
         "name": "Accesorii",
         "description": "Fulare, căciuli, mănuși: nu mai sta pe gânduri, cumpără-le acuși!"
+    },
+    "tyres": {
+        "items": [
+            {
+                "id": 17,
+                "name": "Anvelope de tractor",
+                "price": 2385,
+                "currency": "LEI",
+                "image": "https://i.imgur.com/avnd15n.jpg",
+                "size": "Universal",
+                "colour": "Negru",
+                "material": "Cauciuc",
+                "brand": "Continental",
+                "description": "Cele mai bune anvelope."
+            },
+            {
+                "id": 17,
+                "name": "Anvelope de vara",
+                "price": 900,
+                "currency": "LEI",
+                "image": "https://i.imgur.com/CKSPzUc.jpg",
+                "size": "Universal",
+                "colour": "Negru",
+                "material": "Cauciuc",
+                "brand": "Continental",
+                "description": "Cele mai bune anvelope."
+            }
+        ],
+        "image": "https://i.imgur.com/BK3lO6t.jpg",
+        "name": "Anvelope",
+        "description": "Iarna asta, incalata-ti masina corespunzator! Siguranta e pe primul loc!"
     }
 }
