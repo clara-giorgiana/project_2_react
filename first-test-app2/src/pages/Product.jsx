@@ -10,7 +10,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 function Product(props) {
     
-    
     let { productId } = useParams();
     console.log(productId);
 
@@ -39,7 +38,7 @@ function Product(props) {
                         <button
                             className="btn btn-dark mb-4 font-weight-bold"
                             onClick={() => {
-                                this.props.addToCart({
+                                props.addToCart({
                                     currentProduct: {
                                         id: currentProduct.id,
                                         name: currentProduct.name,
@@ -55,7 +54,7 @@ function Product(props) {
                         <button
                             className="btn btn-dark mb-4 font-weight-bold"
                             onClick={() => {
-                                this.props.addToFavorites({
+                                props.addToFavorites({
                                     currentProduct: {
                                         id: currentProduct.id,
                                         name: currentProduct.name,
