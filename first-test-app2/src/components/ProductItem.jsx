@@ -2,6 +2,7 @@ import React from 'react';
 import './ProductItem.css';
 import { connect } from 'react-redux';
 import { addToCart } from '../redux/actions/cart';
+import { addToFavorites } from '../redux/actions/favorites';
 import { Link } from 'react-router-dom';
 
 
@@ -36,6 +37,20 @@ class ProductItem extends React.Component{
                 >
                     Adaugă în coș
                 </button>
+                <button
+                    className="btn btn-outline-dark"
+                    onClick={() => this.props.addToFavorites({
+                        product: {
+                            id,
+                            name,
+                            price,
+                            currency,
+                            image
+                        }
+                    })}
+                >
+                    Adaugă în fav
+                </button>
             </div>
         );
                 }
@@ -44,8 +59,16 @@ class ProductItem extends React.Component{
 
 function mapDispatchToProps(dispatch) {
     return {
-        addToCart: (product) => dispatch(addToCart(product))
+        addToCart: (product) => dispatch(addToCart(product)),
+        addToFavorites: (product) => dispatch(addToFavorites(product))
     };
 }
+
+
+// function mapDispatchToProps(dispatch) {
+//     return {
+//         addToFavorites: (product) => dispatch(addToFavorites(product))
+//     };
+// }
 
 export default connect(null, mapDispatchToProps)(ProductItem);

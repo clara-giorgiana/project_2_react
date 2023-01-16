@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/images/logo2.png';
 import { ReactComponent as ShoppingCart } from '../assets/icons/shopping-cart.svg';
+import { ReactComponent as FavoritesIcon } from '../assets/icons/favorites-icon2.svg';
 import './Header.css';
 import { connect } from 'react-redux';
 import { logoutUser } from '../redux/actions/user';
@@ -33,6 +34,11 @@ class Header extends React.Component{
                                 <Link to="/cart" className="d-flex">
                                     <ShoppingCart className="ml-2"/>
                                     <p className="ml-1 mb-0">{ this.props.numberOfProducts }</p>
+                                </Link>
+                            </div>
+                            <div className="d-flex align-items-center">
+                                <Link to="/favorites" className="d-flex">
+                                    <FavoritesIcon className="ml-2" width="40"/>
                                 </Link>
                             </div>
                         </div>

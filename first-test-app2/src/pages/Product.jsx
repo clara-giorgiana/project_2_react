@@ -4,6 +4,7 @@ import products from '../utils/products.json';
 import './Product.css';
 import { connect } from 'react-redux';
 import { addToCart } from '../redux/actions/cart';
+import { addToFavorites } from '../redux/actions/favorites';
 import { useParams } from "react-router-dom";
 import { BrowserRouter } from 'react-router-dom';
 
@@ -51,6 +52,22 @@ function Product(props) {
                         >
                             Adaugă în coș
                         </button>
+                        <button
+                            className="btn btn-dark mb-4 font-weight-bold"
+                            onClick={() => {
+                                this.props.addToFavorites({
+                                    currentProduct: {
+                                        id: currentProduct.id,
+                                        name: currentProduct.name,
+                                        price: currentProduct.price,
+                                        currency: currentProduct.currency,
+                                        image: currentProduct.image
+                                    }
+                                })
+                            }}
+                        >
+                            Adaugă la favorite
+                        </button>
                         <p><span className="font-weight-bold">Mărime</span>: {currentProduct.size}</p>
                         <p><span className="font-weight-bold">Culoare</span>: {currentProduct.colour}</p>
                         <p><span className="font-weight-bold">Material</span>: {currentProduct.material}</p>
@@ -66,7 +83,8 @@ function Product(props) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        addToCart: (payload) => dispatch(addToCart(payload))
+        addToCart: (payload) => dispatch(addToCart(payload)),
+        addToFavorites: (payload) => dispatch(addToFavorites(payload))
     }
 }
 
