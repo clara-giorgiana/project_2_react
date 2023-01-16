@@ -26,26 +26,4 @@ function Category(props) {
 
 export default Category;
 
-// class Category extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             category: {},
-//             items: []
-//         }
-//     }
-
-//     componentDidMount() {
-//         // const { categoryName } = this.params.categoryName;
-//         // const { match } = this.props;
-//         // const categoryName = match.params.categoryName;
-//         let { categoryName } = useParams();
-//         console.log(categoryName);
-//         this.setState({
-//             // category: products[categoryName],
-//             // items: products[categoryName].items
-//         });
-//     }
-
-// }
 
