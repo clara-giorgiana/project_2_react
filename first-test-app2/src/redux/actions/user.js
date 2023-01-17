@@ -23,6 +23,7 @@ export function loginUser() {
         dispatch(startLoading());
 
         signInWithGoogle().then(userData => {
+            console.log("user: " + userData.user);
             dispatch(updateUserData(userData.user));
         }).catch(error => {
             dispatch(updateUserError(error));
