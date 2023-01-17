@@ -49,7 +49,7 @@ class ProductItem extends React.Component{
                         }
                     })}
                 >
-                    Adaugă în fav
+                    Adaugă la favorite
                 </button>
             </div>
         );
