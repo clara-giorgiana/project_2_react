@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/images/logo.png';
 import { ReactComponent as Google } from '../assets/icons/google.svg';
+import { ReactComponent as Facebook } from '../assets/icons/github.svg';
 import './Login.css'
 import { connect } from 'react-redux';
-import { loginUser } from '../redux/actions/user';
+import { loginUser, loginFbUser } from '../redux/actions/user';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-function Login({signInWithGoogle, user}) {
+function Login({signInWithGoogle, user, signInWithFacebook}) {
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -34,6 +35,16 @@ function Login({signInWithGoogle, user}) {
                 <Google className="w-50 mr-3"/>
                 <span className="text-nowrap">Loghează-te cu Google</span>
             </button>
+
+            <button
+                className="btn btn-outline-dark d-flex align-items-center"
+                onClick={() => signInWithFacebook()}
+            >
+                <Facebook className="w-50 mr-3"/>
+                <span className="text-nowrap">Loghează-te cu Facebook</span>
+            </button>
+
+
         </div>
     );
 }
@@ -61,7 +72,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        signInWithGoogle: () => dispatch(loginUser())
+        signInWithGoogle: () => dispatch(loginUser()),
+        signInWithFacebook: () => dispatch(loginFbUser())
     }
 }
 
