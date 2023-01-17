@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/images/logo.png';
 import { ReactComponent as Google } from '../assets/icons/google.svg';
-import { ReactComponent as Facebook } from '../assets/icons/github.svg';
+import { ReactComponent as Facebook } from '../assets/icons/facebook-app-icon.svg';
 import './Login.css'
 import { connect } from 'react-redux';
 import { loginUser, loginFbUser } from '../redux/actions/user';
@@ -30,18 +30,20 @@ function Login({signInWithGoogle, user, signInWithFacebook}) {
 
             <button
                 className="btn btn-outline-dark d-flex align-items-center"
+                style={{width: '250px', height: '65px'}}
                 onClick={() => signInWithGoogle()}
             >
-                <Google className="w-50 mr-3"/>
+                <Google style={{width: '50px'}}/>
                 <span className="text-nowrap">Loghează-te cu Google</span>
             </button>
-
+        <br />
             <button
                 className="btn btn-outline-dark d-flex align-items-center"
+                style={{width: '250px', height: '65px'}}
                 onClick={() => signInWithFacebook()}
             >
-                <Facebook className="w-50 mr-3"/>
-                <span className="text-nowrap">Loghează-te cu Facebook</span>
+                <Facebook style={{width: '50px'}}/>
+                <span className="text-nowrap"> &nbsp;Loghează-te cu Facebook</span>
             </button>
 
 
