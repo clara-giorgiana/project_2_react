@@ -6,18 +6,18 @@ export function favoritesReducer(state = initialState, action) {
     switch (action.type) {
         case 'ADD_TO_FAVORITES':
             let productInfavorites = false;
-            // const updatedProducts = state.products.map(product => {
-            //     // if (product.id === action.payload.product.id) {
-            //     //     productInfavorites = true;
-            //     //     return {
-            //     //         ...product,
-            //     //         quantity: product.quantity + 1
-            //     //     }
-            //     // } else {
-            //     //     return product;
-            //     // }
-            //     return product;
-            // })
+            const updatedProducts = state.products.map(product => {
+                if (product.id === action.payload.product.id) {
+                    productInfavorites = true;
+                    // return {
+                    //     ...product,
+                    //     quantity: product.quantity + 1
+                    // }
+                } else {
+                    return product;
+                }
+                return product;
+            })
 
             if (!productInfavorites) {
                 return Object.assign({}, state, {
