@@ -16,7 +16,7 @@ function Category(props) {
     return (
         <Layout>
             <div className="container-fluid container-min-max-width">
-                <h2>{ categoryName }</h2>
+                <h2>{ products[categoryName].name }</h2>
                 <ProductList products={items} />
             </div>
         </Layout>
