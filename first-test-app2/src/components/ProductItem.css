@@ -2,3 +2,9 @@
     max-width: 250px;
     max-height: 250px;
 }
+
+.btn-favorite{
+    border: 0;
+    background-color: transparent;
+    height: 50px;
+}

@@ -34,3 +34,15 @@
         margin-top: 1.5rem;
     }
 }
+
+
+.btn-favorite{
+    border: 0;
+    background-color: transparent;
+    height: 50px;
+    top: -20px;
+}
+
+.buttons{
+    height: 80px;
+}

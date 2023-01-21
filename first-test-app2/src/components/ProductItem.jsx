@@ -5,6 +5,7 @@ import { addToCart } from '../redux/actions/cart';
 import { addToFavorites } from '../redux/actions/favorites';
 import { Link } from 'react-router-dom';
 
+import { ReactComponent as FavoritesIcon } from '../assets/icons/favorites-icon2.svg';
 
 class ProductItem extends React.Component{
     constructor(props) {
@@ -38,7 +39,7 @@ class ProductItem extends React.Component{
                     Adaugă în coș
                 </button>
                 <button
-                    className="btn btn-outline-dark"
+                    className="btn-favorite"
                     onClick={() => this.props.addToFavorites({
                         product: {
                             id,
@@ -49,7 +50,7 @@ class ProductItem extends React.Component{
                         }
                     })}
                 >
-                    Adaugă la favorite
+                    <FavoritesIcon className="ml-2" width="30"/>
                 </button>
             </div>
         );

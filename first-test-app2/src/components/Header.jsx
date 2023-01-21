@@ -26,10 +26,13 @@ class Header extends React.Component{
                             : null
                         }
                         <div className="d-flex justify-content-end">
+
+                            <div className="d-flex align-items-center">
                             { this.props.user
                                 ? <p className="logout h5" onClick={() => this.props.signOut()}>Delogare</p>
                                 : <Link to="/login" className="h5 mb-0">Logare</Link>
                             }
+                            </div>
                             <div className="d-flex align-items-center">
                                 <Link to="/cart" className="d-flex">
                                     <ShoppingCart className="ml-2"/>
@@ -38,7 +41,7 @@ class Header extends React.Component{
                             </div>
                             <div className="d-flex align-items-center">
                                 <Link to="/favorites" className="d-flex">
-                                    <FavoritesIcon className="ml-2" width="40"/>
+                                    <FavoritesIcon className="ml-2" width="30"/>
                                 </Link>
                             </div>
                         </div>
