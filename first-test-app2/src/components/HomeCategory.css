@@ -7,9 +7,20 @@
     box-sizing: border-box;
     padding-left: 20px;
     position: relative;
-    color: rgb(12, 33, 49);
-    text-shadow: rgb(245, 244, 239) 1px 0 3px;
+    color: rgb(217, 230, 243);
+    text-shadow: rgb(7, 6, 0) 1px 0 3px;
     top: -110px;
+}
+
+.categoryDescription{
+    margin: 0 !important;
+    box-sizing: border-box;
+    padding-left: 20px;
+    position: relative;
+    top: -110px;
+    color: rgb(217, 230, 243);
+    text-shadow: rgb(7, 6, 0) 1px 0 3px;
+
 }
 
 .categoryLink{
@@ -20,22 +31,12 @@
 
 .categoryLink:hover .categoryDescription{
     
-    color: aliceblue;
+    color: rgb(255, 255, 255);
     text-shadow: rgb(26, 21, 2) 1px 0 3px;
 }
 
 .categoryLink:hover .categoryTitle{
     
-    color: aliceblue;
+    color: rgb(255, 255, 255);
     text-shadow: rgb(26, 21, 2) 1px 0 3px;
-}
-
-.categoryDescription{
-    margin: 0 !important;
-    box-sizing: border-box;
-    padding-left: 20px;
-    position: relative;
-    top: -110px;
-    color: rgb(12, 33, 49);
-    text-shadow: rgb(245, 244, 239) 1px 0 3px;
 }
