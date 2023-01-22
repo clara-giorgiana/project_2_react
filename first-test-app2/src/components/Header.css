@@ -7,3 +7,25 @@ header .logout:hover {
     cursor: pointer;
     text-decoration: underline;
 }
+
+.numberOfArticles {
+    margin-bottom: 0 !important;
+    text-decoration: none;
+}
+
+.numberOfArticlesLink {
+    display: flex !important;
+    text-decoration: none;
+}
+
+.loginLink {
+    display: flex !important;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.loginLink:hover {
+    font-weight: 600;
+    color: darkblue;
+}
