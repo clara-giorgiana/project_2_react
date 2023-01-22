@@ -1,0 +1,39 @@
+.categoryTitle{
+    /* margin-top: 0.25rem !important; */
+    margin-bottom: 0.25rem !important;
+    font-size: calc(1.275rem + 0.3vw);
+    font-weight: 500;
+    line-height: 1.2;
+    box-sizing: border-box;
+    padding-left: 20px;
+    position: relative;
+    color: rgb(12, 33, 49);
+    text-shadow: rgb(245, 244, 239) 1px 0 3px;
+    top: -110px;
+}
+
+.categoryLink{
+    text-decoration: none;
+}
+
+.categoryLink:hover .categoryDescription{
+    
+    color: aliceblue;
+    text-shadow: rgb(26, 21, 2) 1px 0 3px;
+}
+
+.categoryLink:hover .categoryTitle{
+    
+    color: aliceblue;
+    text-shadow: rgb(26, 21, 2) 1px 0 3px;
+}
+
+.categoryDescription{
+    margin: 0 !important;
+    box-sizing: border-box;
+    padding-left: 20px;
+    position: relative;
+    top: -110px;
+    color: rgb(12, 33, 49);
+    text-shadow: rgb(245, 244, 239) 1px 0 3px;
+}

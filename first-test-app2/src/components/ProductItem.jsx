@@ -18,35 +18,19 @@ class ProductItem extends React.Component {
     const { name, price, currency, image, id } = this.props;
     return (
       <div className="product-item col-12 col-md-4 mb-3 d-flex flex-column align-items-center">
-        <Link
-          to={`/product/${id}`}
-          className="btn-product-link"
-        >
+        <Link to={`/product/${id}`} className="btn-product-link">
           <img src={image} alt="productPhoto" className="mb-2" />
+        </Link>
+
+        <Link to={`/product/${id}`} className="btn-product-link">
           <p className="mb-1 text-center">{name}</p>
           <p className="text-center">{price + currency}</p>
         </Link>
-        <button
-          className="btn btn-outline-dark"
-          onClick={() =>
-            this.props.addToCart({
-              product: {
-                id,
-                name,
-                price,
-                currency,
-                image,
-              },
-            })
-          }
-        >
-          Adaugă în coș
-        </button>
-        <button
-          className="btn-favorite"
-          onClick={() => {
-            if (!this.checkProduct()) {
-              this.props.addToFavorites({
+        <div className="interaction-buttons">
+          <button
+            className="btn btn-outline-dark"
+            onClick={() =>
+              this.props.addToCart({
                 product: {
                   id,
                   name,
@@ -54,18 +38,37 @@ class ProductItem extends React.Component {
                   currency,
                   image,
                 },
-              });
-            } else {
-              this.props.removeFromFavorites({ id: id });
+              })
             }
-          }}
-        >
-          {this.checkProduct() ? (
-            <FavoritesIcon2 className="ml-2" width="30" />
-          ) : (
-            <FavoritesIcon className="ml-2" width="30" />
-          )}
-        </button>
+          >
+            Adaugă în coș
+          </button>
+          &nbsp;
+          <button
+            className="btn-favorite2"
+            onClick={() => {
+              if (!this.checkProduct()) {
+                this.props.addToFavorites({
+                  product: {
+                    id,
+                    name,
+                    price,
+                    currency,
+                    image,
+                  },
+                });
+              } else {
+                this.props.removeFromFavorites({ id: id });
+              }
+            }}
+          >
+            {this.checkProduct() ? (
+              <FavoritesIcon2 className="ml-2" width="30" />
+            ) : (
+              <FavoritesIcon className="ml-2" width="30" />
+            )}
+          </button>
+        </div>
       </div>
     );
   }
