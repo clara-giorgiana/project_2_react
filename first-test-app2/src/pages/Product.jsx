@@ -8,6 +8,7 @@ import { addToFavorites } from "../redux/actions/favorites";
 import { useParams } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import { ReactComponent as FavoritesIcon } from "../assets/icons/favorites-icon2.svg";
+import { ReactComponent as FavoritesIcon2 } from "../assets/icons/favorites-icon4.svg";
 
 function Product(props) {
   let { productId } = useParams();

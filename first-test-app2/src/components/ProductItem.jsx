@@ -6,6 +6,7 @@ import { addToFavorites } from '../redux/actions/favorites';
 import { Link } from 'react-router-dom';
 
 import { ReactComponent as FavoritesIcon } from '../assets/icons/favorites-icon2.svg';
+import { ReactComponent as FavoritesIcon2 } from "../assets/icons/favorites-icon4.svg";
 
 class ProductItem extends React.Component{
     constructor(props) {
@@ -50,12 +51,33 @@ class ProductItem extends React.Component{
                         }
                     })}
                 >
-                    <FavoritesIcon className="ml-2" width="30"/>
+                                { this.checkProduct() 
+                                ? <FavoritesIcon2 className="ml-2" width="30"/>
+                                : <FavoritesIcon className="ml-2" width="30"/>
+                            }
+                    
                 </button>
             </div>
         );
                 }
+
+                checkProduct = () => {
+                    var productInfavorites = false;
+                    // if(this.props.numberOfProducts === 0){
+                    //     return false;
+                    // }
+                    this.props.favProducts.map(product1 => {
+                        if (product1.id === this.props.id) {
+                            productInfavorites = true;
+                        }
+                        
+                    })
+                    console.log("productInfavorites: " + productInfavorites)
+                    return productInfavorites;
+                }    
 }
+
+
 
 
 function mapDispatchToProps(dispatch) {
@@ -64,7 +86,12 @@ function mapDispatchToProps(dispatch) {
         addToFavorites: (product) => dispatch(addToFavorites(product))
     };
 }
-
+function mapStateToProps(state) {
+    return {
+        favProducts: state.favorites.products,
+        numberOfProducts: state.favorites.products.length,
+    }
+}
 
 // function mapDispatchToProps(dispatch) {
 //     return {
@@ -72,4 +99,4 @@ function mapDispatchToProps(dispatch) {
 //     };
 // }
 
-export default connect(null, mapDispatchToProps)(ProductItem);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductItem);
