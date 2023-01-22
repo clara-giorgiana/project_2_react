@@ -23,9 +23,9 @@ header .logout:hover {
     text-decoration: none;
     font-size: 1.25rem;
     font-weight: 500;
+    align-items: center;
 }
 
 .loginLink:hover {
-    font-weight: 600;
     color: darkblue;
 }

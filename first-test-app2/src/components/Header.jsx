@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Logo from "../assets/images/logo3.png";
 import { ReactComponent as ShoppingCart } from "../assets/icons/shopping-cart.svg";
 import { ReactComponent as FavoritesIcon } from "../assets/icons/favorites-icon2.svg";
+import { ReactComponent as Login } from "../assets/icons/login-svgrepo-com.svg";
+import { ReactComponent as Logout } from "../assets/icons/logout-svgrepo-com.svg";
 import "./Header.css";
 import { connect } from "react-redux";
 import { logoutUser } from "../redux/actions/user";
@@ -26,12 +28,12 @@ class Header extends React.Component {
             <div className="d-flex justify-content-end">
               <div className="d-flex align-items-center">
                 {this.props.user ? (
-                  <p className="logout h5" onClick={() => this.props.signOut()}>
-                    Delogare
+                  <p className="loginLink" onClick={() => this.props.signOut()}>
+                    Delogare &nbsp;<Logout className="ml-2" width="30" />
                   </p>
                 ) : (
                   <Link to="/login" className="loginLink">
-                    Logare
+                    Logare &nbsp;<Login className="ml-2" width="30" />
                   </Link>
                 )}
               </div>
