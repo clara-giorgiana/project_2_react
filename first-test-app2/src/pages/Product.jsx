@@ -5,6 +5,7 @@ import "./Product.css";
 import { connect } from "react-redux";
 import { addToCart } from "../redux/actions/cart";
 import { addToFavorites } from "../redux/actions/favorites";
+import { removeFromFavorites } from "../redux/actions/favorites";
 import { useParams } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import { ReactComponent as FavoritesIcon } from "../assets/icons/favorites-icon2.svg";
@@ -37,10 +38,11 @@ function Product(props) {
             </p>
             <div className="buttons">
               <button
-                className="btn btn-dark mb-4 font-weight-bold" style={{marginTop: 16}}
+                className="btn btn-dark mb-4 font-weight-bold"
+                style={{ marginTop: 16 }}
                 onClick={() => {
                   props.addToCart({
-                    currentProduct: {
+                    product: {
                       id: currentProduct.id,
                       name: currentProduct.name,
                       price: currentProduct.price,
@@ -54,19 +56,27 @@ function Product(props) {
               </button>
               <button
                 className="btn-favorite"
-                onClick={() =>
-                  this.props.addToFavorites({
-                    currentProduct: {
-                      id: currentProduct.id,
-                      name: currentProduct.name,
-                      price: currentProduct.price,
-                      currency: currentProduct.currency,
-                      image: currentProduct.image,
-                    },
-                  })
-                }
+                onClick={() => {
+                  if (!checkProduct(props, currentProduct.id)) {
+                    props.addToFavorites({
+                      product: {
+                        id: currentProduct.id,
+                        name: currentProduct.name,
+                        price: currentProduct.price,
+                        currency: currentProduct.currency,
+                        image: currentProduct.image,
+                      },
+                    });
+                  } else {
+                    props.removeFromFavorites({ id: currentProduct.id });
+                  }
+                }}
               >
-                <FavoritesIcon className="ml-2" width="30" />
+                {checkProduct(props, currentProduct.id) ? (
+                  <FavoritesIcon2 className="ml-2" width="30" />
+                ) : (
+                  <FavoritesIcon className="ml-2" width="30" />
+                )}
               </button>
             </div>
 
@@ -95,11 +105,28 @@ function Product(props) {
   );
 }
 
+function checkProduct(props, productId) {
+  var productInfavorites = false;
+  props.favProducts.map((product1) => {
+    if (product1.id === productId) {
+      productInfavorites = true;
+    }
+  });
+  console.log(productId + "productInfavorites: " + productInfavorites);
+  return productInfavorites;
+}
+function mapStateToProps(state) {
+  return {
+    favProducts: state.favorites.products,
+  };
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     addToCart: (payload) => dispatch(addToCart(payload)),
     addToFavorites: (payload) => dispatch(addToFavorites(payload)),
+    removeFromFavorites: (payload) => dispatch(removeFromFavorites(payload)),
   };
 }
 
-export default connect(null, mapDispatchToProps)(Product);
+export default connect(mapStateToProps, mapDispatchToProps)(Product);
